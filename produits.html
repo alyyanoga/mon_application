@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.json">
+
+<meta name="theme-color"
+      content="#2563eb">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Produits</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- EN-TÊTE -->
+
+    <header class="topbar">
+
+        <div class="logo">
+            MON APPLICATION
+        </div>
+
+        <div>
+            <button
+                onclick="retourDashboard()"
+                class="btn-retour">
+                ← Tableau de bord
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- CONTENU -->
+
+    <main class="container">
+
+        <div class="page-header">
+
+            <div>
+                <h1>Produits</h1>
+
+                <p>
+                    Gestion des produits et du stock
+                </p>
+            </div>
+
+            <button
+                class="btn-ajouter"
+                onclick="ouvrirFormulaire()">
+
+                + Ajouter un produit
+
+            </button>
+
+        </div>
+
+
+        <!-- RECHERCHE -->
+
+        <div class="recherche">
+
+            <input
+                type="text"
+                id="recherche"
+                placeholder="🔎 Rechercher un produit..."
+                oninput="rechercherProduit()">
+
+        </div>
+
+
+        <!-- TABLEAU -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Code</th>
+
+                        <th>Désignation</th>
+
+                        <th>Catégorie</th>
+
+                        <th>Prix unitaire</th>
+
+                        <th>Stock</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="listeProduits">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <!-- FENÊTRE AJOUT / MODIFICATION -->
+
+    <div
+        id="modal"
+        class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2 id="titreFormulaire">
+                    Nouveau produit
+                </h2>
+
+                <button
+                    onclick="fermerFormulaire()"
+                    class="btn-fermer">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="produitForm">
+
+
+                <input
+                    type="hidden"
+                    id="indexProduit">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Code produit
+                    </label>
+
+                    <input
+                        type="text"
+                        id="code"
+                        placeholder="Ex : P001"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Désignation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="designation"
+                        placeholder="Nom du produit"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Catégorie
+                    </label>
+
+                    <input
+                        type="text"
+                        id="categorie"
+                        placeholder="Ex : Alimentaire"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Prix unitaire
+                    </label>
+
+                    <input
+                        type="text"
+                        id="prix"
+                        placeholder="Ex : 15000"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Quantité en stock
+                    </label>
+
+                    <input
+                        type="text"
+                        id="stock"
+                        placeholder="Ex : 25"
+                        required>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        onclick="fermerFormulaire()"
+                        class="btn-annuler">
+
+                        Annuler
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-enregistrer">
+
+                        Enregistrer
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
